@@ -181,6 +181,8 @@ class CalculateComp {
     removePhone() {
         if ( this.qtyPhone > 0 ) {
             this.qtyPhone--;
+            this.checkForTierAndRecalculate();
+
         }
 
     }
@@ -311,7 +313,7 @@ class CalculateComp {
     resetAll() {
         this.internet = 0;
         this.tv = 0;
-        this.phone = 0;
+        this.phone = 10;
         this.tier = 1;
         this.internet200 = 0;
         this.internet400 = 0;
