@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check My Earnings</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h3 class="center">My Earnings</h3>
+        <br>
+        <div class="card small" id="mainCard">
+            <div class="card-content">
+                <div class="center">
+                    <h1 id="earnings" class="center">$0</h1>
+                </div>
+                <div class="card-content">
+                    <h5 id="tier" class="center">Tier 0</h5>
+                </div>
+                <div>
+                    <ul style="display: inline;">
+                        <li>Internet <span id="spanInt">0</span></li>
+                        <li>TV <span id="spanTV">0</span></li>
+                        <li>Phone <span id="spanPhone">0</span></li>
+                    </ul>
+                </div>
+
+            </div>
+            <p id="parag" style="display: none; font-size: large;" class="center">Congratulations!, you made it to tier
+                <span id="tier1"></span></p>
+
+
+        </div>
+        <br>
+
+        <br>
+        <div class="row">
+            <div class="col s12 m4 card small">
+                <div class="card-content">
+                    <span class="card-title center" id="intCount">Internet</span>
+
+                    <br>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">Gigabit</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removeGig()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="gigQty" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addGig()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">400 / 400</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="remove400()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qty400" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="add400()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row center ">
+                        <div class="col s6">
+                            <h6 class="center">200 / 200</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="remove200()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qty200" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="add200()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col s12 m4 card">
+                <div class="card-content">
+                    <span class="card-title center">TV</span>
+                    <br>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">Test Drive</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removeTestDrive()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qtyTestDrive" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addTestDrive()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">Your Fios TV</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removeYourTV()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qtyYourTV" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addYourTV()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">More TV</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removeMoreTV()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qtyMoreTV" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addMoreTV()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">The Most TV</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removeMostTV()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qtyMostTV" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addMostTV()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col s12 m4 card">
+                <div class="card-content">
+                    <span class="card-title center">Phone</span>
+                    <br>
+                    <div class="row center">
+                        <div class="col s6">
+                            <h6 class="center">Home Phone</h6>
+                        </div>
+                        <div class="col s6">
+                            <div class="row">
+                                <div class="col s4">
+                                    <a onclick="removePhone()" id="remGig" class="btn-floating black"><i
+                                            class="material-icons">remove</i></a>
+                                </div>
+                                <div class="col s4">
+                                    <a id="qtyPhone" class="btn-floating black center">0</a>
+                                </div>
+
+                                <div class="col s4">
+                                    <a onclick="addPhone()" id="plus" class="btn-floating black"><i
+                                            class="material-icons">add</i></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="index.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+<footer>
+    <i>If you want to know your paycheck, please just add your base salary.</i>
+</footer>
+<br>
+
+</html>
