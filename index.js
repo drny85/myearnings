@@ -362,6 +362,11 @@ const parag = document.getElementById( 'parag' );
 
 const myApp = new CalculateComp();
 
+function resetAll() {
+    myApp.resetAll();
+
+}
+
 function reload() {
 
 
@@ -510,4 +515,10 @@ function addPhone() {
 function removePhone() {
     myApp.removePhone();
     reload();
+}
+
+function resetAll() {
+    myApp.resetAll();
+    reload();
+
 }
