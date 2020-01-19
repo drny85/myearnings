@@ -75,11 +75,10 @@ class CalculateComp {
     }
 
     addMundo() {
-        if ( this.tv > 0 ) {
-            this.tv++;
-            this.qtyMundo++
-            this.checkForTierAndRecalculate();
-        }
+
+        this.tv++;
+        this.qtyMundo++
+        this.checkForTierAndRecalculate();
 
 
     }
@@ -96,12 +95,10 @@ class CalculateComp {
 
     addMundoTotal() {
 
-        if ( this.tv > 0 ) {
-            this.tv++;
-            this.qtyMundoTotal++
-            this.checkForTierAndRecalculate();
-        }
 
+        this.tv++;
+        this.qtyMundoTotal++
+        this.checkForTierAndRecalculate();
 
     }
 
@@ -354,6 +351,8 @@ const qtyYourTV = document.getElementById( 'qtyYourTV' );
 const qtyMoreTV = document.getElementById( 'qtyMoreTV' );
 const qtyMostTV = document.getElementById( 'qtyMostTV' );
 const qtyPhone = document.getElementById( 'qtyPhone' );
+const qtyMundo = document.getElementById( 'qtyMundo' );
+const qtyMundoTotal = document.getElementById( 'qtyMundoTotal' );
 
 const spanInt = document.getElementById( 'spanInt' );
 const spanTV = document.getElementById( 'spanTV' );
@@ -409,6 +408,8 @@ function reload() {
     spanTV.innerText = `${myApp.tv}`;
     spanPhone.innerText = `${myApp.qtyPhone}`;
     qtyPhone.innerText = `${myApp.qtyPhone}`;
+    qtyMundo.innerText = `${myApp.qtyMundo}`
+    qtyMundoTotal.innerText = `${myApp.qtyMundoTotal}`
 
 
 }
@@ -523,4 +524,25 @@ function resetAll() {
     myApp.resetAll();
     reload();
 
+}
+
+function addMundoTV() {
+    myApp.addMundo();
+    reload();
+}
+
+function removeMundo() {
+    myApp.removeMundo();
+    reload();
+
+}
+
+function addMundoTotal() {
+    myApp.addMundoTotal();
+    reload();
+}
+
+function removeMundoTotal() {
+    myApp.removeMundoTotal();
+    reload();
 }
