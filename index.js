@@ -16,9 +16,11 @@ class CalculateComp {
 		internet400 = 0,
 		internetGig = 0,
 		yourFiosTV = 0,
+		wireless = 60,
 		qty200 = 0,
 		qty400 = 0,
 		qtyGig = 0,
+		qtyWireless = 0,
 		moreFiosTV = 0,
 		mostFiosTv = 0,
 		testDrive = 0,
@@ -44,6 +46,8 @@ class CalculateComp {
 		this.yourFiosTV = yourFiosTV;
 		this.testDrive = testDrive;
 		this.qty200 = qty200;
+		this.wireless = wireless;
+		this.qtyWireless = qtyWireless;
 		this.qty400 = qty400;
 		this.qtyGig = qtyGig;
 		this.qtyPhone = qtyPhone;
@@ -198,6 +202,17 @@ class CalculateComp {
 		}
 	}
 
+	addWireless() {
+		this.qtyWireless++;
+		//this.checkForTierAndRecalculate();
+	}
+
+	removeWireless() {
+		if (this.qtyWireless > 0) {
+			this.qtyWireless--;
+		}
+	}
+
 	checkForTierAndRecalculate() {
 		if (this.internet >= 0 && this.internet <= 8) {
 			this.tier = 1;
@@ -265,7 +280,8 @@ class CalculateComp {
 			this.yourFiosTV * this.qtyYourTV +
 			this.testDrive * this.qtyTestDrive;
 		let phone = this.phone * this.qtyPhone;
-		amt = internet + phone + tv;
+		let wireless = this.wireless * this.qtyWireless;
+		amt = internet + phone + tv + wireless;
 
 		return amt;
 	}
@@ -309,6 +325,7 @@ class CalculateComp {
 		this.qtyMundo = 0;
 		this.qtyMundoTotal = 0;
 		this.qtyTestDrive = 0;
+		this.qtyWireless = 0;
 		this.qtyYourTV = 0;
 		this.qtyMostTV = 0;
 		this.qtyMoreTV = 0;
@@ -331,11 +348,13 @@ const qtyMoreTV = document.getElementById("qtyMoreTV");
 const qtyMostTV = document.getElementById("qtyMostTV");
 const qtyPhone = document.getElementById("qtyPhone");
 const qtyMundo = document.getElementById("qtyMundo");
+const qtyWireless = document.getElementById("qtyWireless");
 const qtyMundoTotal = document.getElementById("qtyMundoTotal");
 
 const spanInt = document.getElementById("spanInt");
 const spanTV = document.getElementById("spanTV");
 const spanPhone = document.getElementById("spanPhone");
+const spanWireless = document.getElementById("spanWireless");
 const mainCard = document.getElementById("mainCard");
 const spanTier = document.getElementById("tier1");
 const parag = document.getElementById("parag");
@@ -344,8 +363,6 @@ const myApp = new CalculateComp();
 
 function resetAll() {
 	myApp.resetAll();
-	const base = document.getElementById("base");
-	console.log(base);
 }
 
 function reload() {
@@ -380,7 +397,9 @@ function reload() {
 	spanInt.innerText = `${myApp.internet}`;
 	spanTV.innerText = `${myApp.tv}`;
 	spanPhone.innerText = `${myApp.qtyPhone}`;
+	spanWireless.innerText = `${myApp.qtyWireless}`;
 	qtyPhone.innerText = `${myApp.qtyPhone}`;
+	qtyWireless.innerText = `${myApp.qtyWireless}`;
 	qtyMundo.innerText = `${myApp.qtyMundo}`;
 	qtyMundoTotal.innerText = `${myApp.qtyMundoTotal}`;
 }
@@ -497,6 +516,16 @@ function addMundoTotal() {
 
 function removeMundoTotal() {
 	myApp.removeMundoTotal();
+	reload();
+}
+
+function addWireless() {
+	myApp.addWireless();
+	reload();
+}
+
+function removeWireless() {
+	myApp.removeWireless();
 	reload();
 }
 
