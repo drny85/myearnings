@@ -500,27 +500,39 @@ function removeMundoTotal() {
 	reload();
 }
 
+// @ts-ignore
 $(document).ready(function() {
+	// @ts-ignore
 	$(".showBase").hide();
 	// jQuery methods go here...
 	// const input = document.querySelector( '.hidden' );
+	// @ts-ignore
 	$("#btn").click(() => {
+		// @ts-ignore
 		$(".hidden").removeClass("hidden");
+		// @ts-ignore
 		$("#btn").text("OK");
+		// @ts-ignore
 		$("#btn").css({ width: "200px" });
+		// @ts-ignore
 		$("#btn").addClass("ok");
+		// @ts-ignore
 		$(".ok").click(() => {
+			// @ts-ignore
 			let salary = $("#salary").val();
 
 			if (salary != "") {
 				myApp.showBase = true;
 				if (myApp.showBase) {
+					// @ts-ignore
 					$(".showBase").show();
 				}
 				// myApp.amount += parseInt(salary.toString());
 				myApp.baseSalary = parseInt(salary.toString());
 				reload();
+				// @ts-ignore
 				$(".input-field").addClass("hidden");
+				// @ts-ignore
 				$(".ok").hide("slow");
 
 				//reload();
@@ -529,6 +541,7 @@ $(document).ready(function() {
 		});
 	});
 
+	// @ts-ignore
 	$("#salary").on("keyup", () => {
 		console.log("5");
 	});
