@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Compiled and minified CSS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
@@ -19,12 +21,12 @@
 <body>
 
     <div class="container">
-        <h3 class="center">My Earnings</h3>
+        <h3 class="center animated flipInY">My Earnings</h3>
         <button style="float: right;" onclick="resetAll()" class="btn black">Reset All</button>
         <br>
         <br>
-        <div class="card small" id="mainCard">
-            <div class="card-content">
+        <div class="card" id="mainCard">
+            <div class="card-content animated bounceInDown">
                 <div class="center">
                     <h1 id="earnings" class="center">$0</h1>
                 </div>
@@ -38,23 +40,34 @@
                         <li>Phone <span id="spanPhone">0</span></li>
                     </ul>
                 </div>
+              
+                <p id="base" class="showBase">Base salary included</p>
 
             </div>
-            <p id="parag" style="display: none; font-size: large;" class="center">Congratulations!, you made it to tier
+            <p id="parag" style="display: none; font-size: medium;" class="center">Congratulations!, you made it to tier
                 <span id="tier1"></span></p>
 
 
         </div>
         <br>
-
-        <br>
-        <div class="row">
+        <div class="base_pay center">
+            <button id="btn" class="btn black">Enter My Base Salary</button>
+            <div class="form">
+                <div class="row">
+        <div class="input-field col s12 hidden">
+          <input id="salary"   type="number" min="100" class="validate">
+          <label for="salary">Base Salarry</label>
+        </div>
+      </div>
+            </div>
+        </div>
+        <div class="row ">
             <div class="col s12 m4 card small">
-                <div class="card-content">
+                <div class="card-content animated fadeInDown">
                     <span class="card-title center" id="intCount">Internet</span>
 
                     <br>
-                    <div class="row center">
+                    <div class="row center ">
                         <div class="col s6">
                             <h6 class="center">Gigabit</h6>
                         </div>
@@ -124,7 +137,7 @@
                 </div>
 
             </div>
-            <div class="col s12 m4 card">
+            <div class="col s12 m4 card animated fadeInLeft">
                 <div class="card-content">
                     <span class="card-title center">TV</span>
                     <br>
@@ -263,7 +276,7 @@
 
                 </div>
             </div>
-            <div class="col s12 m4 card">
+            <div class="col s12 m4 card animated fadeInUp">
                 <div class="card-content">
                     <span class="card-title center">Phone</span>
                     <br>
