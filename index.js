@@ -37,7 +37,7 @@ class CalculateComp {
 		this.showBase = showBase;
 		this.phone = phone;
 		this.tier = tier;
-		this.internet100 = this.internet100;
+		this.internet100 = internet100;
 		this.internet200 = internet200;
 		this.internet400 = internet400;
 		this.internetGig = internetGig;
