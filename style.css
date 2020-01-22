@@ -25,3 +25,11 @@ ul li span {
 	font-style: italic;
 	font-weight: bold;
 }
+
+h6 {
+	text-align: right !important;
+}
+
+.card-title {
+	font-weight: bold !important;
+}
