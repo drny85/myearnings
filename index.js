@@ -12,11 +12,13 @@ class CalculateComp {
 		qtyMoreTV = 0,
 		qtyMundo = 0,
 		qtyMundoTotal = 0,
+		internet100 = 0,
 		internet200 = 20,
 		internet400 = 0,
 		internetGig = 0,
 		yourFiosTV = 0,
 		wireless = 60,
+		qty100 = 0,
 		qty200 = 0,
 		qty400 = 0,
 		qtyGig = 0,
@@ -35,6 +37,7 @@ class CalculateComp {
 		this.showBase = showBase;
 		this.phone = phone;
 		this.tier = tier;
+		this.internet100 = this.internet100;
 		this.internet200 = internet200;
 		this.internet400 = internet400;
 		this.internetGig = internetGig;
@@ -45,6 +48,7 @@ class CalculateComp {
 		this.amount = amount;
 		this.yourFiosTV = yourFiosTV;
 		this.testDrive = testDrive;
+		this.qty100 = qty100;
 		this.qty200 = qty200;
 		this.wireless = wireless;
 		this.qtyWireless = qtyWireless;
@@ -58,6 +62,12 @@ class CalculateComp {
 		this.qtyMostTV = qtyMostTV;
 		this.qtyMoreTV = qtyMoreTV;
 		console.log("INIT");
+	}
+
+	addInternet100() {
+		this.internet++;
+		this.qty100++;
+		this.checkForTierAndRecalculate();
 	}
 
 	addInternet200() {
@@ -177,6 +187,14 @@ class CalculateComp {
 		}
 	}
 
+	remove100() {
+		if (this.qty100 > 0) {
+			this.internet--;
+			this.qty100--;
+			this.checkForTierAndRecalculate();
+		}
+	}
+
 	remove200() {
 		if (this.qty200 > 0) {
 			this.internet--;
@@ -226,6 +244,7 @@ class CalculateComp {
 		}
 
 		if (this.tier === 1) {
+			this.internet100 = 20;
 			this.internet200 = 20;
 			this.internet400 = 35;
 			this.internetGig = 50;
@@ -236,6 +255,7 @@ class CalculateComp {
 			this.mostFiosTv = 30;
 			this.yourFiosTV = 15;
 		} else if (this.tier === 2) {
+			this.internet100 = 40;
 			this.internet200 = 40;
 			this.internet400 = 55;
 			this.internetGig = 70;
@@ -246,6 +266,7 @@ class CalculateComp {
 			this.mostFiosTv = 40;
 			this.yourFiosTV = 25;
 		} else if (this.tier === 3) {
+			this.internet100 = 50;
 			this.internet200 = 50;
 			this.internet400 = 70;
 			this.internetGig = 85;
@@ -269,6 +290,7 @@ class CalculateComp {
 	get getAmount() {
 		let amt = 0;
 		let internet =
+			this.internet100 * this.qty100 +
 			this.internet200 * this.qty200 +
 			this.internet400 * this.qty400 +
 			this.internetGig * this.qtyGig;
@@ -287,6 +309,7 @@ class CalculateComp {
 	}
 	get internetAmount() {
 		return (
+			this.internet100 * this.qty100 +
 			this.internet200 * this.qty200 +
 			this.internet400 * this.qty400 +
 			this.internetGig * this.qtyGig
@@ -308,6 +331,7 @@ class CalculateComp {
 		this.tv = 0;
 		this.phone = 10;
 		this.tier = 1;
+		this.internet100 = 0;
 		this.internet200 = 0;
 		this.internet400 = 0;
 		this.internetGig = 0;
@@ -318,6 +342,7 @@ class CalculateComp {
 		this.amount = 0;
 		this.yourFiosTV = 0;
 		this.testDrive = 0;
+		this.qty100 = 0;
 		this.qty200 = 0;
 		this.qty400 = 0;
 		this.qtyGig = 0;
@@ -340,6 +365,7 @@ const btnPlus = document.querySelector("#addGigabit");
 const gigQty = document.getElementById("gigQty");
 const tier = document.getElementById("tier");
 const tier1 = document.getElementById("tier1");
+const qty100 = document.getElementById("qty100");
 const qty200 = document.getElementById("qty200");
 const qty400 = document.getElementById("qty400");
 const qtyTestDtive = document.getElementById("qtyTestDrive");
@@ -388,6 +414,7 @@ function reload() {
 	}
 	earnings.textContent = `$${myApp.amount.toFixed(2)}`;
 	gigQty.innerText = `${myApp.qtyGig}`;
+	qty100.innerText = `${myApp.qty100}`;
 	qty200.innerText = `${myApp.qty200}`;
 	qty400.innerText = `${myApp.qty400}`;
 	qtyTestDtive.innerText = `${myApp.qtyTestDrive}`;
@@ -411,6 +438,15 @@ function addGig() {
 
 function removeGig() {
 	myApp.removeGig();
+	reload();
+}
+function add100() {
+	myApp.addInternet100();
+	reload();
+}
+
+function remove100() {
+	myApp.remove100();
 	reload();
 }
 
