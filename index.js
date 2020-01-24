@@ -36,6 +36,7 @@ class CalculateComp {
 		this.tv = tv;
 		this.showBase = showBase;
 		this.phone = phone;
+
 		this.tier = tier;
 		this.internet100 = internet100;
 		this.internet200 = internet200;
@@ -401,13 +402,16 @@ function reload() {
 
 	if (myApp.tier === 2) {
 		mainCard.style.backgroundColor = "#2ecc71";
+		mainCard.className = "animated flipInX card";
 		parag.style.display = "block";
 		spanTier.innerText = "2";
 	} else if (myApp.tier === 1) {
 		mainCard.style.backgroundColor = "#ecf0f1";
+		mainCard.className = "card";
 		parag.style.display = "none";
 	} else if (myApp.tier === 3) {
 		mainCard.style.backgroundColor = "#1abc9c";
+		mainCard.className = "animated lightSpeedIn card";
 		spanTier.innerText = "3";
 	} else {
 		parag.style.display = "none";
