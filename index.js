@@ -3,6 +3,7 @@ class CalculateComp {
 		internet = 0,
 		tv = 0,
 		phone = 10,
+		protect = 45,
 		tier = 1,
 		amount = 0,
 		qtyPhone = 0,
@@ -23,6 +24,7 @@ class CalculateComp {
 		qty400 = 0,
 		qtyGig = 0,
 		qtyWireless = 0,
+		qtyProtect = 0,
 		moreFiosTV = 0,
 		mostFiosTv = 0,
 		testDrive = 0,
@@ -36,6 +38,7 @@ class CalculateComp {
 		this.tv = tv;
 		this.showBase = showBase;
 		this.phone = phone;
+		this.protect = protect;
 
 		this.tier = tier;
 		this.internet100 = internet100;
@@ -57,6 +60,7 @@ class CalculateComp {
 		this.qtyGig = qtyGig;
 		this.qtyPhone = qtyPhone;
 		this.qtyMundo = qtyMundo;
+		this.qtyProtect = qtyProtect;
 		this.qtyMundoTotal = qtyMundoTotal;
 		this.qtyTestDrive = qtyTestDrive;
 		this.qtyYourTV = qtyYourTV;
@@ -232,6 +236,16 @@ class CalculateComp {
 		}
 	}
 
+	addProtect() {
+		this.qtyProtect++;
+	}
+
+	removeProtect() {
+		if (this.qtyProtect > 0) {
+			this.qtyProtect--;
+		}
+	}
+
 	checkForTierAndRecalculate() {
 		if (this.internet >= 0 && this.internet <= 8) {
 			this.tier = 1;
@@ -304,7 +318,8 @@ class CalculateComp {
 			this.testDrive * this.qtyTestDrive;
 		let phone = this.phone * this.qtyPhone;
 		let wireless = this.wireless * this.qtyWireless;
-		amt = internet + phone + tv + wireless;
+		let protect = this.protect * this.qtyProtect;
+		amt = internet + phone + tv + wireless + protect;
 
 		return amt;
 	}
@@ -355,6 +370,7 @@ class CalculateComp {
 		this.qtyYourTV = 0;
 		this.qtyMostTV = 0;
 		this.qtyMoreTV = 0;
+		this.qtyProtect = 0;
 		this.baseSalary = 0;
 		this.showBase = false;
 		window.location.reload();
@@ -378,8 +394,11 @@ const qtyMundo = document.getElementById("qtyMundo");
 const qtyWireless = document.getElementById("qtyWireless");
 const qtyMundoTotal = document.getElementById("qtyMundoTotal");
 
+const qtyProtect = document.getElementById("qtyProtect");
+
 const spanInt = document.getElementById("spanInt");
 const spanTV = document.getElementById("spanTV");
+const spanProtect = document.getElementById("spanProtect");
 const spanPhone = document.getElementById("spanPhone");
 const spanWireless = document.getElementById("spanWireless");
 const mainCard = document.getElementById("mainCard");
@@ -421,12 +440,14 @@ function reload() {
 	qty100.innerText = `${myApp.qty100}`;
 	qty200.innerText = `${myApp.qty200}`;
 	qty400.innerText = `${myApp.qty400}`;
+	qtyProtect.innerText = `${myApp.qtyProtect}`;
 	qtyTestDtive.innerText = `${myApp.qtyTestDrive}`;
 	qtyYourTV.innerText = `${myApp.qtyYourTV}`;
 	qtyMoreTV.innerText = `${myApp.qtyMoreTV}`;
 	qtyMostTV.innerText = `${myApp.qtyMostTV}`;
 	spanInt.innerText = `${myApp.internet}`;
 	spanTV.innerText = `${myApp.tv}`;
+	spanProtect.innerText = `${myApp.qtyProtect}`;
 	spanPhone.innerText = `${myApp.qtyPhone}`;
 	spanWireless.innerText = `${myApp.qtyWireless}`;
 	qtyPhone.innerText = `${myApp.qtyPhone}`;
@@ -566,6 +587,16 @@ function addWireless() {
 
 function removeWireless() {
 	myApp.removeWireless();
+	reload();
+}
+
+function addProtect() {
+	myApp.addProtect();
+	reload();
+}
+
+function removeProtect() {
+	myApp.removeProtect();
 	reload();
 }
 

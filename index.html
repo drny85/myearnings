@@ -35,10 +35,11 @@
                 </div>
                 <div>
                     <ul style="display: inline;">
-                        <li>Internet <span id="spanInt">0</span></li>
-                        <li>TV <span id="spanTV">0</span></li>
-                        <li>Phone <span id="spanPhone">0</span></li>
-                        <li>Wireless <span id="spanWireless">0</span></li>
+                        <li><i class="material-icons">wifi</i> <span id="spanInt">0</span></li>
+                        <li><i class="material-icons">video_label</i> <span id="spanTV"> 0</span></li>
+                        <li><i class="material-icons">phone</i><span id="spanPhone"> 0</span></li>
+                        <li><i class="material-icons">phone_iphone</i><span id="spanWireless"> 0</span></li>
+                        <li><i class="material-icons">lock_outline</i><span id="spanProtect"> 0</span></li>
                     </ul>
                 </div>
               
@@ -301,7 +302,7 @@
             </div>
             <div class="col s12 m4 card animated fadeInUp">
                 <div class="card-content">
-                    <span class="card-title center">Phone</span>
+                    <span class="card-title center">Phone / Protection</span>
                     <br>
                     <div class="row center">
                         <div class="col s6">
@@ -346,6 +347,27 @@
                             </div>
 
                         </div>
+                        <div class="row center">
+                            <div class="col s6">
+                                <h6 class="center">Verizon Protect Home</h6>
+                            </div>
+                            <div class="col s6">
+                                <div class="row">
+                                    <div class="col s4">
+                                        <a onclick="removeProtect()" id="remGig" class="btn-floating black"><i
+                                                class="material-icons">remove</i></a>
+                                    </div>
+                                    <div class="col s4">
+                                        <a id="qtyProtect" class="btn-floating black center">0</a>
+                                    </div>
+    
+                                    <div class="col s4">
+                                        <a onclick="addProtect()" id="plus" class="btn-floating black"><i
+                                                class="material-icons">add</i></a>
+                                    </div>
+                                </div>
+    
+                            </div>
                     </div>
                 </div>
             </div>
