@@ -1,3 +1,4 @@
+
 class CalculateComp {
 	constructor(
 		internet = 0,
@@ -66,7 +67,7 @@ class CalculateComp {
 		this.qtyYourTV = qtyYourTV;
 		this.qtyMostTV = qtyMostTV;
 		this.qtyMoreTV = qtyMoreTV;
-		console.log("INIT");
+		
 	}
 
 	addInternet100() {
